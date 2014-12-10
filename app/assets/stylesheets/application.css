@@ -15,6 +15,7 @@
  */
 div{
     -moz-user-select:none;
+    font-family: Futura,"Trebuchet MS",Arial,sans-serif;
 }
 
 div.heading{
@@ -24,7 +25,38 @@ div.heading{
     padding-top: 1vh;
     color: #ffffff;
     border: 1px solid #dcdcdc;
-    font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-weight: bold;
+    font-size: 120%;
+    padding-bottom: 1vh;
 
+}
+
+div.footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    height: 3vh;
+    background-color: black;
+    color: #dcdcdc;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    text-align: center;
+    font-size: 80%;
+    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+}
+
+div.header{
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    height: 7vh;
+    background-color: black;
+    color: #dcdcdc;
+}
+
+div.main_content{
+    height: 87vh;
+    width: 100%;
+    margin-top: 7vh;
 }

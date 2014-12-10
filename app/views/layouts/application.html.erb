@@ -6,9 +6,13 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style="margin-left: 0px;">
+<div class="header">&nbsp;</div>
+<div class="main_content">
+    <%= yield %>
+</div>
+<div class="footer">EpiHack - Contact Tracing</div>
 
-<%= yield %>
 
 </body>
 </html>
