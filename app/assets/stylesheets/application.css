@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+div{
+    -moz-user-select:none;
+}
+
+div.heading{
+    background-color: blue;
+    height: 3vh;
+    text-align: center;
+    padding-top: 1vh;
+    color: #ffffff;
+    border: 1px solid #dcdcdc;
+    font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    font-weight: bold;
+
+}

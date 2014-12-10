@@ -1,0 +1,45 @@
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#events').dataTable({
+            'iDisplayLength': 20,
+            "bLengthChange": false,
+            "bPaginate": false,
+            "bFilter": false,
+            "bSort": true,
+            "order": [
+                [ 2, "desc" ]
+            ]
+        });
+    });
+</script>
+<div>
+  <table border="1" id="events">
+
+    <thead>
+    <tr>
+      <th>Location</th>
+      <th>Date Reported</th>
+      <th>Diagnosis</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Ngorongoro</td>
+      <td><%= Date.today %></td>
+      <td>Anthrax</td>
+      <td>New</td>
+      <td>View</td>
+    </tr>
+    <tr>
+      <td>Ikepruus</td>
+      <td><%= Date.today - 1.days %></td>
+      <td>Foot and Mouth</td>
+      <td>New</td>
+      <td>View</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
