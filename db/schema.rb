@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210143142) do
+ActiveRecord::Schema.define(version: 20141210205636) do
+
+  create_table "animal_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "event_statuses", primary_key: "event_status_id", force: true do |t|
     t.integer  "event_id"
@@ -24,6 +30,23 @@ ActiveRecord::Schema.define(version: 20141210143142) do
     t.string   "description"
     t.integer  "location"
     t.string   "location_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reports", force: true do |t|
+    t.string   "caller_number"
+    t.string   "name"
+    t.string   "farmer_id"
+    t.integer  "number_of_infected"
+    t.integer  "animal_type_id"
+    t.text     "animal_symptoms"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "symptom_types", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
