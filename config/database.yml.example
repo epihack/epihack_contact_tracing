@@ -1,0 +1,25 @@
+production:
+  adapter: mysql
+  username: user_id
+  database: epihack
+  password: your_password
+  host: localhost
+  pool: 500
+
+development:
+  adapter: mysql
+  username: user_id
+  database: epihack
+  password: your_password
+  host: localhost
+  pool: 500
+
+test: &TEST
+  adapter: mysql
+  database: user_id
+  username: epihack
+  password: your_password
+  host: localhost
+
+cucumber:
+  <<: *TEST
