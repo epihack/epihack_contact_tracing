@@ -23,7 +23,7 @@
     <% (@events || []).each do |event| %>
      <tr>
       <% if event.report %>
-        <td><%= event.report.farmer_id %></td>
+        <td><%= @locations[event.report.farmer_id]%></td>
         <td><%= event.date_reported.strftime("%d %b %Y") %></td>
         <td>Animal show signs of <%= to_symptom_name(event.report.animal_symptoms) %></td>
         <td style="text-align: center;"><%= event.report.number_of_infected %></td>

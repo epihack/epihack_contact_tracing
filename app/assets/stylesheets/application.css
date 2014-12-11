@@ -84,8 +84,8 @@ div.main_content{
 }
 
 .footer-page{
-  height: 60px;
-  padding-top: 20px;
+  height: 40px;
+  padding-top: 10px;
 }
 
 .subtitle{
@@ -137,9 +137,12 @@ img.dashboard:hover{
 }
 
 footer {
+    position:absolute;
     height: 100%;
+    width: 100%;
     background-color: GREY;
     color: WHITE;
+    bottom:0px;
 }
 
 div.odd-row{
