@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
 		report.animal_symptom = {}
 		AnimalSymptom.all.each do |s|
 			if params[s.code].to_i == 1
-				report.animal_symptom[s.name] = params[s.code].to_i
+				report.animal_symptom[s.code] = params[s.code].to_i
 			end
 		end                                    
 		if report.save!
