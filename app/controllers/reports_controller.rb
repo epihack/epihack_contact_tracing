@@ -10,6 +10,8 @@ class ReportsController < ApplicationController
 		AnimalSymptom.all.each do |s|
 			report.animal_symptom.push params[s.name] if params[s.name].to_i == 1
 		end                                    
-		report.save!
+		if report.save!
+			Event.create!(:date_reported => DateTime.now())
+		end
 	end
 end
