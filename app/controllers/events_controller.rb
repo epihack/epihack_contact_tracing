@@ -6,8 +6,7 @@ class EventsController < ApplicationController
 
   def show 
   	@event = Event.find params[:id]
-  	#@site = @event.get_location_from_resourcemap
+  	@site = @event.get_location_from_resourcemap
    @close_locations = @event.potential_impacted_areas
-   raise @close_locations.inspect
   end
 end

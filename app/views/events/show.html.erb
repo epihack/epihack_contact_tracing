@@ -9,8 +9,8 @@
 <div class="table" style="width: 98%;margin-top: -20px;margin-left: auto;margin-right: auto;">
   <div class="row">
     <div style="width: 99%;">
-      Case Reported at <%= @site %> on <%= @event.date_reported.strftime("%d %b %Y") %> (<b>Symptoms: </b>
-      <%#= @event.report.number_of_infected %>, <b>Number of Affected : </b>
+      Case Reported at <%= @site.first["name"] %> on <%= @event.date_reported.strftime("%d %b %Y") %> (<b>Symptoms: </b>
+      <%= to_symptom_name(@event.report.animal_symptoms) %>, <b>Number of Affected : </b>
       <%= (@event.report.blank? ? 0 : @event.report.number_of_infected) %>)
     </div>
   </div>
@@ -18,19 +18,31 @@
     <div class="cell" style="float: left;">
         <div class="heading">Map of Potentially Impacted Areas</div>
         <div class="span8">
-          <iframe width="100%" height="225" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=15+Springfield+Way,+Hythe,+CT21+5SH&aq=t&sll=52.8382,-2.327815&sspn=8.047465,14.666992&ie=UTF8&hq=&t=m&z=14&ll=51.077429,1.121722&output=embed"></iframe>
+          <iframe width="100%" height="225" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=<%= @site[0]["lat"] %>,<%= @site[0]["long"] %>&aq=t&sll=<%= @site[0]["lat"] %>,<%= @site[0]["long"] %>&sspn=<%= @site[0]["lat"] %>,<%= @site[0]["long"] %>&ie=UTF8&hq=&hnear=<%= @site[0]["lat"] %>,<%= @site[0]["long"] %>&t=m&z=10&ll=<%= @site[0]["lat"] %>,<%= @site[0]["long"] %>&output=embed"></iframe>
       </div>
     </div>
     <div class="cell" style="float: right;">
       <div class="heading">Summary of Potentially Impacted Areas</div>
       <div class="summary" style="height: 10vh;">
-
+        <% (@close_locations || []).each do |location| %>
+            <div class="<%= cycle('odd-row', 'even-row') %>">
+              <%= location["name"] %>
+            </div>
+        <%end%>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="cell" style="float: left;">
       <div class="heading">Follow Up</div>
+      <div class="summary" style="height: 10vh;">
+        <% (@close_locations || []).each do |location| %>
+            <div class="<%= cycle('odd-row', 'even-row') %>">
+              <%= follow_up_on(location["properties"]["contact"],
+                               location["properties"]["contactname"],location["name"]) %>
+            </div>
+        <%end%>
+      </div>
     </div>
     <div class="cell" style="float: right;">
       <div class="heading">Event History</div>
