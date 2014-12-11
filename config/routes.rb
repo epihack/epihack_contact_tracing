@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
    resources :reports
 
+  devise_scope :user do
+    get "/users/sign_out" => "devise/sessions#destroy"
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
