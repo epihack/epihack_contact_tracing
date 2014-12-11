@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 	belongs_to :location, :foreign_key => :location
   has_many :event_statuses
   belongs_to :report
-  attr_accessible :date_reported
+  attr_accessible :date_reported, :report
 
   def self.get_events_in_order(order)
    self.order("date_reported #{order}")

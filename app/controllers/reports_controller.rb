@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
 			end
 		end                                    
 		if report.save!
-			event = Event.create!(:date_reported => DateTime.now(), :report_id => report.id)
+			event = Event.create!(:date_reported => DateTime.now(), :report => report)
 			EventStatus.create!(:event_id => event.id, :status => "New", :status_date => DateTime.now())
 		end
 	end
