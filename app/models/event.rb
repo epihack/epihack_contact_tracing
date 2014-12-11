@@ -7,6 +7,6 @@ class Event < ActiveRecord::Base
  end
 
  def location_name
-  
+
  end
 end

@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
- def index
-  @events = Event.get_events_in_order("DESC")
- end
+
+	before_filter :authenticate_user!
+  def index
+   @events = Event.get_events_in_order("DESC")
+  end
+
 end

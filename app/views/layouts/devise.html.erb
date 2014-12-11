@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Animal Contact Tracing</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner sabay-header">
+        <div class="hearder_narrow">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </a>
+          <a class="brand" href="/" name="top">
+            <img src="/logo.png" alt="..." class="img-rounded">
+          </a>
+        <!--/.nav-collapse -->
+        </div>
+      <!--/.container-fluid -->
+      </div>
+    <!--/.navbar-inner -->
+    </div>
+    <%= yield %>
+    <hr class="hrfooter" />
+    <footer class="footer-page">
+      <center>&copy; Animal Contact Tracing</center>
+    </footer>
+  </body>
+</html>
