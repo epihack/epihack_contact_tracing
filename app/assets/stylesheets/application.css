@@ -19,7 +19,7 @@ div{
 }
 
 div.heading{
-    background-color: blue;
+    background-color: #9999FF;
     height: 3vh;
     text-align: center;
     padding-top: 1vh;
@@ -50,13 +50,25 @@ div.header{
     position: absolute;
     top: 0px;
     width: 100vw;
-    height: 7vh;
+    height: 14vh;
+    background-color: #707070 ;
+    color: black;
+}
+
+div.menu{
+    position: absolute;
+    top: 75px;
+    width: 100vw;
+    height: 3vh;
     background-color: black;
     color: #dcdcdc;
+    font-size: 80%;
+    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+
 }
 
 div.main_content{
     height: 87vh;
     width: 100%;
-    margin-top: 7vh;
+    margin-top: 14vh;
 }
