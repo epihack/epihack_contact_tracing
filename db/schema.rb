@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211074406) do
+ActiveRecord::Schema.define(version: 20141211120249) do
 
   create_table "animal_types", force: true do |t|
     t.string   "name"
@@ -29,11 +29,9 @@ ActiveRecord::Schema.define(version: 20141211074406) do
 
   create_table "events", primary_key: "event_id", force: true do |t|
     t.datetime "date_reported"
-    t.string   "description"
-    t.integer  "location_id"
-    t.string   "location_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "report_id"
   end
 
   create_table "locations", primary_key: "location_id", force: true do |t|

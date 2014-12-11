@@ -12,7 +12,7 @@
     <tr>
       <th>Location</th>
       <th>Date Reported</th>
-      <th>Signs Affected</th>
+      <th width="250">Signs Affected</th>
       <th style="text-align: center;">Number Affected</th>
       <th style="text-align: center;">Number Dead</th>
       <th>Status</th>
@@ -22,13 +22,23 @@
     <tbody>
     <% (@events || []).each do |event| %>
      <tr>
-       <td><%= event.location_name %></td>
-       <td><%= event.date_reported.strftime("%d %b %Y") %></td>
-       <td><%= event.description %></td>
-       <td style="text-align: center;">0</td>
-       <td style="text-align: center;">0</td>
-       <td> New</td>
-       <td><%= link_to "View",event_path(event) %></td>
+      <% if event.report %>
+        <td><%= event.report.farmer_id %></td>
+        <td><%= event.date_reported.strftime("%d %b %Y") %></td>
+        <td>Animal show signs of <%= to_symptom_name(event.report.animal_symptoms) %></td>
+        <td style="text-align: center;"><%= event.report.number_of_infected %></td>
+        <td style="text-align: center;"><%= event.report.number_of_infected %></td>
+        <td><%= event.event_statuses.last.status %></td>
+        <td><%= link_to "View",event_path(event) %></td>
+      <% else %>
+        <td></td>
+        <td><%= event.date_reported.strftime("%d %b %Y") %></td>
+        <td></td>
+        <td style="text-align: center;">0</td>
+        <td style="text-align: center;">0</td>
+        <td><%= event.event_statuses.last.status %></td>
+        <td><%= link_to "View",event_path(event) %></td>
+      <% end %>
      </tr>
     <% end %>
     </tbody>
