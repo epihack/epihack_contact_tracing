@@ -6,10 +6,10 @@ class ReportsController < ApplicationController
 		report.number_of_infected = params[:affected_animals]
 		report.animal_type = AnimalType.find_by_id((params[:animal_species].to_i - 1))
 		report.number_of_death = params[:number_of_deaths]
-		report.animal_symptom = {}
+		report.animal_symptoms = {}
 		SymptomType.all.each do |s|
 			if params[s.code].to_i == 1
-				report.animal_symptom[s.code] = params[s.code].to_i
+				report.animal_symptoms[s.code] = params[s.code].to_i
 			end
 		end                                    
 		if report.save!
