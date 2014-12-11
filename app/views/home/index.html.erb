@@ -13,7 +13,9 @@
     <tr>
       <th>Location</th>
       <th>Date Reported</th>
-      <th>Diagnosis</th>
+      <th>Signs Affected</th>
+      <th style="text-align: center;">Number Affected</th>
+      <th style="text-align: center;">Number Dead</th>
       <th>Status</th>
       <th>Action</th>
     </tr>
@@ -24,8 +26,10 @@
        <td><%= event.location_name %></td>
        <td><%= event.date_reported.strftime("%d %b %Y") %></td>
        <td><%= event.description %></td>
+       <td style="text-align: center;">0</td>
+       <td style="text-align: center;">0</td>
        <td> New</td>
-       <td><button style="width: 50%">View</button></td>
+       <td><%= link_to "View",'event/index',  :id => event.id %></td>
      </tr>
     <% end %>
     </tbody>
