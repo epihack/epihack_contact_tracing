@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211120249) do
+ActiveRecord::Schema.define(version: 20141211180939) do
 
   create_table "animal_types", force: true do |t|
     t.string   "name"
@@ -47,12 +47,14 @@ ActiveRecord::Schema.define(version: 20141211120249) do
     t.text     "animal_symptoms"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "number_of_death"
   end
 
   create_table "symptom_types", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code"
   end
 
   create_table "users", force: true do |t|
