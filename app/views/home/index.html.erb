@@ -26,9 +26,9 @@
         <td><%= event.report.farmer_id %></td>
         <td><%= event.date_reported.strftime("%d %b %Y") %></td>
         <td>Animal show signs of <%= to_symptom_name(event.report.animal_symptoms) %></td>
-        <td style="text-align: center;">0</td>
-        <td style="text-align: center;">0</td>
-        <td> New</td>
+        <td style="text-align: center;"><%= event.report.number_of_infected %></td>
+        <td style="text-align: center;"><%= event.report.number_of_infected %></td>
+        <td><%= event.event_statuses.last.status %></td>
         <td><%= link_to "View",event_path(event) %></td>
       <% else %>
         <td></td>
@@ -36,7 +36,7 @@
         <td></td>
         <td style="text-align: center;">0</td>
         <td style="text-align: center;">0</td>
-        <td> New</td>
+        <td><%= event.event_statuses.last.status %></td>
         <td><%= link_to "View",event_path(event) %></td>
       <% end %>
      </tr>

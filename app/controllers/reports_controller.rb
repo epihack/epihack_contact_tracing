@@ -11,7 +11,8 @@ class ReportsController < ApplicationController
 			report.animal_symptom.push params[s.name] if params[s.name].to_i == 1
 		end                                    
 		if report.save!
-			Event.create!(:date_reported => DateTime.now())
+			event = Event.create!(:date_reported => DateTime.now())
+			EventStatus.create!(:event_id => event.id, :status => "New", :status_date => DateTime.now())
 		end
 	end
 end
