@@ -2,19 +2,11 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#events').dataTable({
-            'iDisplayLength': 40,
-            "bLengthChange": false,
-            "bPaginate": false,
-            "bFilter": false,
-            "bSort": true,
-            "order": [
-                [ 2, "desc" ]
-            ]
         });
     });
 </script>
 <div>
-  <table id="events" style="width: 98%; margin-left: auto;margin-right: auto;margin-top: 5px;">
+  <table id="events" class="display" cellspacing="0" style="width: 98%; margin-left: auto;margin-right: auto;margin-top: 5px;">
 
     <thead>
     <tr>
@@ -26,20 +18,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Ngorongoro</td>
-      <td><%= Date.today %></td>
-      <td>Anthrax</td>
-      <td>New</td>
-      <td>View</td>
-    </tr>
-    <tr>
-      <td>Ikepruus</td>
-      <td><%= Date.today - 1.days %></td>
-      <td>Foot and Mouth</td>
-      <td>New</td>
-      <td>View</td>
-    </tr>
+    <% (@events || []).each do |event| %>
+     <tr>
+       <td><%= event.location_name %></td>
+       <td><%= event.date_reported.strftime("%d %b %Y") %></td>
+       <td><%= event.description %></td>
+       <td> New</td>
+       <td><button style="width: 50%">View</button></td>
+     </tr>
+    <% end %>
     </tbody>
   </table>
 </div>
