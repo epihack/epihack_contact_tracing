@@ -6,6 +6,6 @@ class EventsController < ApplicationController
 
   def show 
   	@event = Event.find params[:id]
-  	@site = @event.get_location_from_resourcemap 
+  	#@site = @event.get_location_from_resourcemap
   end
 end

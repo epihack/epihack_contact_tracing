@@ -16,4 +16,7 @@ class Event < ActiveRecord::Base
   	RestClient.get "#{ResourceMapConfig['url']}/api/collections/#{ResourceMapConfig['collection_id']}", {:params => {'GP_id' => self.location}}
   end
 
+  def potential_impacted_areas
+
+  end
 end
