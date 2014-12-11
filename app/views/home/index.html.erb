@@ -6,28 +6,30 @@
         });
     });
 </script>
-<div>
-  <table id="events" class="display" cellspacing="0" style="width: 98%; margin-left: auto;margin-right: auto;margin-top: 5px;">
+<center>
+  <div style="width:90%;">
+    <table id="events" class="display" cellspacing="0" style="width: 90%; margin-left: auto;margin-right: auto;margin-top: 5px;">
 
-    <thead>
-    <tr>
-      <th>Location</th>
-      <th>Date Reported</th>
-      <th>Diagnosis</th>
-      <th>Status</th>
-      <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% (@events || []).each do |event| %>
-     <tr>
-       <td><%= event.location_name %></td>
-       <td><%= event.date_reported.strftime("%d %b %Y") %></td>
-       <td><%= event.description %></td>
-       <td> New</td>
-       <td><button style="width: 50%">View</button></td>
-     </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+      <thead>
+      <tr>
+        <th>Location</th>
+        <th>Date Reported</th>
+        <th>Diagnosis</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% (@events || []).each do |event| %>
+       <tr>
+         <td><%= event.location_name %></td>
+         <td><%= event.date_reported.strftime("%d %b %Y") %></td>
+         <td><%= event.description %></td>
+         <td> New</td>
+         <td><button style="width: 50%">View</button></td>
+       </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</center>
