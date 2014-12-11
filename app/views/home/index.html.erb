@@ -26,20 +26,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Ngorongoro</td>
-      <td><%= Date.today %></td>
-      <td>Anthrax</td>
-      <td>New</td>
-      <td>View</td>
-    </tr>
-    <tr>
-      <td>Ikepruus</td>
-      <td><%= Date.today - 1.days %></td>
-      <td>Foot and Mouth</td>
-      <td>New</td>
-      <td>View</td>
-    </tr>
+    <% (@events || []).each do |event| %>
+     <tr>
+       <td><%= event.location_name %></td>
+       <td><%= event.date_reported.strftime("%d %b %Y") %></td>
+       <td><%= event.description %></td>
+       <td> New</td>
+       <td>view</td>
+     </tr>
+    <% end %>
     </tbody>
   </table>
 </div>

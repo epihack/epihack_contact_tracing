@@ -22,11 +22,13 @@ ActiveRecord::Schema.define(version: 20141210231928) do
   create_table "event_statuses", primary_key: "event_status_id", force: true do |t|
     t.integer  "event_id"
     t.string   "status"
+    t.datetime "status_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "events", primary_key: "event_id", force: true do |t|
+    t.datetime "date_reported"
     t.string   "description"
     t.integer  "location"
     t.string   "location_type"
