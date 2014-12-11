@@ -9,4 +9,8 @@ class Location < ActiveRecord::Base
   #method to query resource map and get details
 
  end
+
+ def get_nearby_locations(location)
+
+ end
 end
