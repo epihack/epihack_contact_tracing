@@ -10,7 +10,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
+                                     
 ActiveRecord::Schema.define(version: 20141211194233) do
   create_table "animal_types", force: true do |t|
     t.string   "name"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20141211194233) do
   end
 
   create_table "reports", force: true do |t|
-    t.string   "caller_number"
     t.string   "name"
     t.string   "farmer_id"
     t.integer  "number_of_infected"
@@ -54,6 +53,7 @@ ActiveRecord::Schema.define(version: 20141211194233) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "number_of_death"
+    t.string   "call_sid"
   end
 
   create_table "symptom_types", force: true do |t|
