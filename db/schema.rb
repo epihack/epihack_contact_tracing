@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210231928) do
+ActiveRecord::Schema.define(version: 20141211074406) do
 
   create_table "animal_types", force: true do |t|
     t.string   "name"
@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(version: 20141210231928) do
     t.string   "location_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "locations", primary_key: "location_id", force: true do |t|
+    t.string "name"
   end
 
   create_table "reports", force: true do |t|

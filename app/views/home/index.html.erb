@@ -2,19 +2,12 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#events').dataTable({
-            'iDisplayLength': 20,
-            "bLengthChange": false,
-            "bPaginate": false,
-            "bFilter": false,
-            "bSort": true,
-            "order": [
-                [ 2, "desc" ]
-            ]
+
         });
     });
 </script>
 <div>
-  <table id="events" style="width: 98%; margin-left: auto;margin-right: auto;margin-top: 5px;">
+  <table id="events" class="display" cellspacing="0" style="width: 98%; margin-left: auto;margin-right: auto;margin-top: 5px;">
 
     <thead>
     <tr>
@@ -32,7 +25,7 @@
        <td><%= event.date_reported.strftime("%d %b %Y") %></td>
        <td><%= event.description %></td>
        <td> New</td>
-       <td>view</td>
+       <td><button style="width: 50%">View</button></td>
      </tr>
     <% end %>
     </tbody>
