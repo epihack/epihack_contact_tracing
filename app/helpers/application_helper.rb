@@ -6,5 +6,9 @@ module ApplicationHelper
 			names.push symptom.name if symptom
 		end 
 		names.join(" and ")
-	end	
+ end
+
+ def follow_up_on contact, person, place
+  "Call #{person} on #{contact} from #{place}"
+ end
 end

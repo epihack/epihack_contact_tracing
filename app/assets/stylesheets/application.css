@@ -142,3 +142,13 @@ footer {
     color: WHITE;
 }
 
+div.odd-row{
+    font-size: 120%;
+    padding-left: 10px;
+}
+
+div.even-row{
+    font-size: 120%;
+    background-color: #dcdcdc;
+    padding-left: 10px;
+}
