@@ -8,6 +8,10 @@ class Event < ActiveRecord::Base
    self.order("date_reported #{order}")
   end
 
+  def source_contact_name
+    get_location_from_resourcemap[0]["name"]
+  end
+
   def location_name
    self.location.get_name
   end
