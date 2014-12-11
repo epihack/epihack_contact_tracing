@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211180939) do
+ActiveRecord::Schema.define(version: 20141211191937) do
 
   create_table "animal_types", force: true do |t|
     t.string   "name"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20141211180939) do
   end
 
   create_table "reports", force: true do |t|
-    t.string   "caller_number"
     t.string   "name"
     t.string   "farmer_id"
     t.integer  "number_of_infected"
@@ -48,6 +47,7 @@ ActiveRecord::Schema.define(version: 20141211180939) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "number_of_death"
+    t.string   "call_sid"
   end
 
   create_table "symptom_types", force: true do |t|
