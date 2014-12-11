@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Epihack Contact Tracing</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body style="margin-left: 0px;">
-<div class="header">&nbsp;</div>
-<div class="main_content">
+	<head>
+	  <title>Animal Contract Tracing</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "datepicker", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "bootstrap-datepicker", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+	</head>
+	<body>
+    <div class="navbar">
+      <div class="navbar-inner sabay-header">
+        <div class="hearder_narrow">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </a>
+          <a class="brand" href="/" name="top">
+            <img src="/logo.png" alt="..." class="img-rounded">
+          </a>
+          <% unless current_user %>
+            <div class="pull-right right-menu" style="padding-right:10px;">
+              <%= link_to " About Us", about_us_path(), :method => :get %> |
+              <%= link_to " Contact Us", contact_us_path(), :method => :get %> | 
+              <%= link_to " Sign In ", new_user_session_path(), :method => :get %>
+            </div>
+          <% else %>
+            <div class="pull-right right-menu" style="padding-right:10px;">
+              <%= link_to current_user.email, "#", :method => :get %> | 
+              <%= link_to " Sign Out ", users_sign_out_path(), :method => :get %>
+            </div>
+          <% end %>
+        <!--/.nav-collapse -->
+        </div>
+      <!--/.container-fluid -->
+      </div>
+    <!--/.navbar-inner -->
+    </div>
     <%= yield %>
-</div>
-<div class="footer">EpiHack - Contact Tracing</div>
-
-
-</body>
+    <hr class="hrfooter" />
+    <footer class="footer-page">
+      <center>&copy; SabayTrade / ALL RIGHTS RESERVED 2015</center>
+    </footer>
+	</body>
 </html>
