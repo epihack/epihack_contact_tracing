@@ -56,39 +56,15 @@
         <% end %>
       </div>
       <div>
-        <%= form_tag("/event_statuses", method: "post") do %>
-        <%= select_tag( :status ,options_for_select([['Investigating', 'Investigating'], ['Resolved', 'Resolved']])) %>
-        <%= hidden_field_tag :event_id , @event.id %>
-        <%= submit_tag("Update") %>
+
+        <% if @event.not_closed %>
+            <%= form_tag("/event_statuses", method: "post") do %>
+                <%= select_tag( :status ,options_for_select(get_possible_statuses(@event.last_state))) %>
+                <%= hidden_field_tag :event_id , @event.id %>
+                <%= submit_tag("Update") %>
+            <% end %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  <!--
-  function confirmChange(id)
-  {
-      var new_state = document.getElementById(id).value
-    if(confirm("Do you want to update the state to " + new_state+ "?"))
-    {
-        var form = document.createElement("form");
-        form.method = 'POST';
-        form.name = 'event_status';
-        form.action = '/event_statuses';
-
-        var event = document.createElement("input")
-        event.value = <%= @event.id %>;
-        event.name = "event_id";
-
-        var status = document.createElement("input")
-        event.value = new_state
-        event.name = "status";
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-  }
-  //-->
-</script>

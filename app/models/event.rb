@@ -50,4 +50,11 @@ class Event < ActiveRecord::Base
    response = request.response
   end
 
+  def not_closed
+   self.event_statuses.last.status != "Resolved"
+  end
+
+  def last_state
+   self.event_statuses.last.status
+  end
 end
