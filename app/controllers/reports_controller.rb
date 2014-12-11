@@ -16,7 +16,7 @@ class ReportsController < ApplicationController
 			event = Event.create!(:date_reported => DateTime.now(), :report_id => report.id)
 			EventStatus.create!(:event_id => event.id, :status => "New", :status_date => DateTime.now())
 		end
+	
+		render nothing: true
 	end
-
-	render nothing: true
 end
