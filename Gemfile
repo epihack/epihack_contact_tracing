@@ -18,6 +18,7 @@ gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails", "~> 3.2"
 gem 'will_paginate-bootstrap', "0.2.4"
 gem 'devise-encryptable'
+gem "typhoeus"
 
 
 group :test do
