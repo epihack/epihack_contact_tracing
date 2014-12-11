@@ -3,6 +3,7 @@ class CallsController < ApplicationController
     c = Call.where(call_sid: params[:CallSid]).first_or_initialize
     c.from = params[:From]
     c.save!
+    render_json :ok
   end
 
   def create
