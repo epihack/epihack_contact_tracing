@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :calls
+
   devise_for :users
   get 'event/index'
 
