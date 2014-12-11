@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
 		report.call_sid = params[:CallSid] 
 		report.farmer_id = params[:gp_id]
 		report.number_of_infected = params[:affected_animals]
-		report.animal_type = AnimalType.find_by_id(params[:animal_species])
+		report.animal_type = AnimalType.find_by_id((params[:animal_species].to_i - 1))
 		report.number_of_death = params[:number_of_deaths]
 		report.animal_symptom = {}
 		SymptomType.all.each do |s|
