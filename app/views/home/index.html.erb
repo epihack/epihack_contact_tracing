@@ -2,6 +2,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#events').dataTable({
+          "orderFixed": [ 0, 'desc' ]
         });
     });
 </script>
@@ -10,8 +11,8 @@
     <table id="events" class="display" cellspacing="0" style="width: 90%; margin-left: auto;margin-right: auto;margin-top: 5px;">
     <thead>
     <tr>
-      <th>Location</th>
       <th>Date Reported</th>
+      <th>Location</th>
       <th width="250">Signs and Symptoms</th>
       <th style="text-align: center;">Number of Animals Affected </th>
       <th style="text-align: center;">Number of Animals Dead</th>
@@ -22,8 +23,8 @@
     <tbody>
     <% (@events || []).each do |event| %>
      <tr>
-      <td><%= event.source_contact_name %></td>
       <td><%= event.date_reported.strftime("%d %b %Y") %></td>
+      <td><%= event.source_contact_name %></td>
       <td>Animal show signs of <%= to_symptom_name(event.report.animal_symptoms) %></td>
       <td style="text-align: center;"><%= event.report.number_of_infected %></td>
       <td style="text-align: center;"><%= event.report.number_of_infected %></td>
